@@ -57,6 +57,20 @@ public class IrregularPolygon {
             // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
             DrawingTool pen = new DrawingTool(new SketchPad(500, 500));
             pen.move(50, 50);
+            if (myPolygon.size() < 2) {
+                System.out.println("Not enough points to draw a polygon.");
+                return;
+            }
+
+            Point2D.Double first = myPolygon.get(0);
+            pen.up();
+            pen.move(first.x, first.y);
+            pen.down();
+
+            for (Point2D.Double point : myPolygon) {
+                pen.move(point.x, point.y);
+            }
+            pen.move(first.x, first.y);
         } catch (java.awt.HeadlessException e) {
             System.out.println("Exception: No graphics support available.");
         }
