@@ -57,10 +57,6 @@ public class IrregularPolygon {
             // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
             DrawingTool pen = new DrawingTool(new SketchPad(500, 500));
             pen.move(50, 50);
-            if (myPolygon.size() < 2) {
-                System.out.println("Not enough points to draw a polygon.");
-                return;
-            }
 
             Point2D.Double first = myPolygon.get(0);
             pen.up();
